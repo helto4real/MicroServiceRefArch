@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace PersonService.Model
+namespace JoySoftware.PersonService.Model
 {
     public class Person
     {

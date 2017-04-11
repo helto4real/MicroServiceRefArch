@@ -1,9 +1,9 @@
-﻿using PersonService.Model;
+﻿using JoySoftware.PersonService.Model;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PersonService.Contract
+namespace JoySoftware.PersonService.Contract
 {
     public interface IPersonService
     {

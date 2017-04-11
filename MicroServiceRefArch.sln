@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.Base", "Base
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonService", "Services\PersonService\PersonService.csproj", "{3CDB68F7-F9C1-40E4-A53F-706A67E4339F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonService.Infrastructure", "Services\PersonService.Infrastructure\PersonService.Infrastructure.csproj", "{CF0A9873-DEDE-404F-9747-30AFBCF48E7B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonServiceAPI", "Services\PersonServiceAPI\PersonServiceAPI.csproj", "{C2B9CB26-7BF5-4592-A8B7-F2109C88D077}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{3CDB68F7-F9C1-40E4-A53F-706A67E4339F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CDB68F7-F9C1-40E4-A53F-706A67E4339F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CDB68F7-F9C1-40E4-A53F-706A67E4339F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF0A9873-DEDE-404F-9747-30AFBCF48E7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF0A9873-DEDE-404F-9747-30AFBCF48E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF0A9873-DEDE-404F-9747-30AFBCF48E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF0A9873-DEDE-404F-9747-30AFBCF48E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2B9CB26-7BF5-4592-A8B7-F2109C88D077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B9CB26-7BF5-4592-A8B7-F2109C88D077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B9CB26-7BF5-4592-A8B7-F2109C88D077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B9CB26-7BF5-4592-A8B7-F2109C88D077}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +47,7 @@ Global
 		{73164829-EB96-4BE9-A852-EDFDDD73AD20} = {591B455B-7653-427B-9575-F1E28EFE5AFA}
 		{3029F60E-F049-421C-8542-44455FC3804A} = {CD2C6D89-E7BC-47B5-88C1-F7EFA6A1F184}
 		{3CDB68F7-F9C1-40E4-A53F-706A67E4339F} = {73164829-EB96-4BE9-A852-EDFDDD73AD20}
+		{CF0A9873-DEDE-404F-9747-30AFBCF48E7B} = {73164829-EB96-4BE9-A852-EDFDDD73AD20}
+		{C2B9CB26-7BF5-4592-A8B7-F2109C88D077} = {73164829-EB96-4BE9-A852-EDFDDD73AD20}
 	EndGlobalSection
 EndGlobal

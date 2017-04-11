@@ -1,11 +1,11 @@
-﻿using PersonService.Contract;
+﻿using JoySoftware.PersonService.Contract;
 using System;
 using System.Collections.Generic;
 using System.Text;
-using PersonService.Model;
+using JoySoftware.PersonService.Model;
 using System.Linq;
 
-namespace PersonService
+namespace JoySoftware.PersonService
 {
     //ToDo: Add validation etc later...
     class PersonService : IPersonService
