@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonService.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PersonServiceAPI", "Services\PersonServiceAPI\PersonServiceAPI.csproj", "{C2B9CB26-7BF5-4592-A8B7-F2109C88D077}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PersonService.Test", "PersonService.Test", "{3CF229AD-9F9B-45B6-90B5-1872B42DF92D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonService.Infrastructure.Test", "Services.Test\PersonService.Infrastructure.Test\PersonService.Infrastructure.Test.csproj", "{E52CC96B-E9A8-4354-B2D6-82FADD6C4E86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,10 @@ Global
 		{C2B9CB26-7BF5-4592-A8B7-F2109C88D077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C2B9CB26-7BF5-4592-A8B7-F2109C88D077}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C2B9CB26-7BF5-4592-A8B7-F2109C88D077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E52CC96B-E9A8-4354-B2D6-82FADD6C4E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E52CC96B-E9A8-4354-B2D6-82FADD6C4E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E52CC96B-E9A8-4354-B2D6-82FADD6C4E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E52CC96B-E9A8-4354-B2D6-82FADD6C4E86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -49,5 +57,7 @@ Global
 		{3CDB68F7-F9C1-40E4-A53F-706A67E4339F} = {73164829-EB96-4BE9-A852-EDFDDD73AD20}
 		{CF0A9873-DEDE-404F-9747-30AFBCF48E7B} = {73164829-EB96-4BE9-A852-EDFDDD73AD20}
 		{C2B9CB26-7BF5-4592-A8B7-F2109C88D077} = {73164829-EB96-4BE9-A852-EDFDDD73AD20}
+		{3CF229AD-9F9B-45B6-90B5-1872B42DF92D} = {591B455B-7653-427B-9575-F1E28EFE5AFA}
+		{E52CC96B-E9A8-4354-B2D6-82FADD6C4E86} = {3CF229AD-9F9B-45B6-90B5-1872B42DF92D}
 	EndGlobalSection
 EndGlobal
