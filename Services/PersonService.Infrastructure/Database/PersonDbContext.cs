@@ -27,7 +27,9 @@ namespace JoySoftware.PersonService.Infrastructure.Database
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (connectionString != null)
-                optionsBuilder.UseSqlServer(connectionString); // @"Server=(localdb)\mssqllocaldb;Database=PersonServiceDb;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(connectionString);
+            else
+                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=PersonServiceDb;Trusted_Connection=True;");
         }
     }
 }

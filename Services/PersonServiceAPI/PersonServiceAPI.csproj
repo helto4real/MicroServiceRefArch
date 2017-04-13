@@ -26,6 +26,8 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Base\Infrastructure.Base.csproj" />
+    <ProjectReference Include="..\PersonService.Infrastructure\PersonService.Infrastructure.csproj" />
     <ProjectReference Include="..\PersonService\PersonService.csproj" />
   </ItemGroup>
 
