@@ -15,6 +15,7 @@ namespace JoySoftware.Intrastructure.Base.Repository
         IQueryable<TEnity> GetAll();
         IQueryable<TEnity> FindBy(Expression<Func<TEnity, bool>> predicate);
 
+        TEnity GetById(params object[] keyValues);
         void Add(TEnity entity);
         void Delete(TEnity entity);
         void Update(TEnity entity);

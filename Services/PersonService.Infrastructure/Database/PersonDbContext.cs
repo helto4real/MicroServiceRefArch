@@ -8,12 +8,26 @@ namespace JoySoftware.PersonService.Infrastructure.Database
 {
     public class PersonDbContext : DbContext
     {
+        private string connectionString = null;
+
+        public PersonDbContext() { }
+
+        /// <summary>
+        ///  Mainly used for testing, normal case the settings is set during dependency injection
+        /// </summary>
+        /// <param name="connectionString">The connectionstring to the database used</param>
+        public PersonDbContext(string connectionString)
+        {
+            this.connectionString = connectionString;
+        }
+
         public DbSet<Person> Person { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=PersonServiceDb;Trusted_Connection=True;");
+            if (connectionString != null)
+                optionsBuilder.UseSqlServer(connectionString); // @"Server=(localdb)\mssqllocaldb;Database=PersonServiceDb;Trusted_Connection=True;");
         }
     }
 }

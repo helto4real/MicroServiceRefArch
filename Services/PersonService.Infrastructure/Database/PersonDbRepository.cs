@@ -11,6 +11,7 @@ namespace JoySoftware.PersonService.Infrastructure.Database
 {
     public class PersonDbRepository : EntityFrameworkRepository<PersonDbContext, Person>
     {
-       
+        public PersonDbRepository() : base() { }
+        public PersonDbRepository(PersonDbContext personContext) : base(personContext) { }
     }
 }

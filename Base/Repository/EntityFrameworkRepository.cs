@@ -4,20 +4,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Collections;
 
 namespace JoySoftware.Intrastructure.Base.Repository.Database.EF
 {
-    public abstract class EntityFrameworkRepository<TContext, TEntity> :
+    public abstract class EntityFrameworkRepository<TContext, TEntity> : 
         IRepository<TEntity> where TEntity : class where TContext : DbContext, new()
 
     {
-        private TContext context = new TContext();
+        private TContext context = null;
+
+        #region -- Constructors --
+        public EntityFrameworkRepository()
+        {
+            context = new TContext();
+        }
+
+        public EntityFrameworkRepository(TContext dbContext)
+        {
+            context = dbContext;
+        }
+        #endregion
 
         public TContext Context
         {
             get { return context; }
-            set { context = value;  }
         }
+
         public virtual void Add(TEntity entity)
         {
             context.Set<TEntity>().Add(entity);
@@ -35,12 +48,6 @@ namespace JoySoftware.Intrastructure.Base.Repository.Database.EF
             return query;
         }
 
-        public virtual IQueryable<TEntity> GetAll()
-        {
-            IQueryable<TEntity> query = context.Set<TEntity>();
-            return query;
-        }
-
         public virtual void Save()
         {
             context.SaveChanges();
@@ -54,6 +61,17 @@ namespace JoySoftware.Intrastructure.Base.Repository.Database.EF
         public virtual void UpdateOrAdd(TEntity entity)
         {
             throw new NotImplementedException();
+        }
+
+        public virtual IQueryable<TEntity> GetAll()
+        {
+            IQueryable<TEntity> query = context.Set<TEntity>();
+            return query;
+        }
+
+        public TEntity GetById(params object[] keyValues )
+        {
+            return context.Set<TEntity>().Find(keyValues);
         }
     }
 }
