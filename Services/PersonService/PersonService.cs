@@ -12,15 +12,21 @@ namespace JoySoftware.PersonService
     public class PersonService : IPersonService
     {
         IPersonRepository personRepository = null;
+        IPersonSimpleRepository personSimpleRepository = null;
 
-        public PersonService(IPersonRepository repository)
+       
+       
+        public PersonService(IPersonRepository repository, IPersonSimpleRepository simpleRepository)
         {
-            personRepository = repository;
+            this.personRepository = repository;
+            this.personSimpleRepository = simpleRepository;
         }
 
         public async Task< IEnumerable<Person>> GetAll()
         {
-            return await personRepository.AllAsync();
+           // return await personRepository.AllAsync();
+
+            return await personSimpleRepository.AllAsync();
 
         }
 

@@ -34,13 +34,15 @@ namespace JoySoftware.PersonServiceAPI
             // Add framework services.
             services.AddMvc();
 
-            //var connection = @"Server=(localdb)\mssqllocaldb;Database=PersonServiceDb;Trusted_Connection=True;";
+            var connectionString = @"Server=(localdb)\mssqllocaldb;Database=Person;Trusted_Connection=True;";
             //services.AddDbContext<PersonDbContext>(options => options.UseSqlServer(connection));
 
             //services.AddDbContext<>
             services.AddTransient<IPersonService, JoySoftware.PersonService.PersonService>();
-            services.AddTransient<IPersonRepository, PersonDbRepository>() ; 
+            services.AddTransient<IPersonRepository, PersonDbRepository>();
             
+            services.Add(new ServiceDescriptor(typeof(IPersonSimpleRepository), p => new PersonDapperDbRepository(connectionString), ServiceLifetime.Transient));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

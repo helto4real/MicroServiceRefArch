@@ -9,4 +9,9 @@ namespace JoySoftware.PersonService.Contract
     public interface IPersonRepository : IRepository<Person>
     {
     }
+
+    public interface IPersonSimpleRepository : ISimpleRepository<Person>
+    {
+
+    }
 }
