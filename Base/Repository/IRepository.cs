@@ -13,8 +13,8 @@ namespace JoySoftware.Intrastructure.Base.Repository
     /// </summary>
     public interface IRepository<TEnity> where TEnity : class 
     {
-        IQueryable<TEnity> GetAll();
-        Task<List<TEnity>> GetAllAsync();
+        IQueryable<TEnity> All();
+        Task<List<TEnity>> AllAsync();
         IList<TEnity> FindBy(Expression<Func<TEnity, bool>> predicate);
         Task <IList<TEnity>> FindByAsync(Expression<Func<TEnity, bool>> predicate);
 

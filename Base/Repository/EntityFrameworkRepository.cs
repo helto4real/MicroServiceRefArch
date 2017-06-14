@@ -74,13 +74,13 @@ namespace JoySoftware.Intrastructure.Base.Repository.Database.EF
             throw new NotImplementedException();
         }
 
-        public virtual IQueryable<TEntity> GetAll()
+        public virtual IQueryable<TEntity> All()
         {
             IQueryable<TEntity> query = context.Set<TEntity>();
             return query;
         }
 
-        public virtual async Task<List<TEntity>> GetAllAsync()
+        public virtual async Task<List<TEntity>> AllAsync()
         {
             return await context.Set<TEntity>().ToListAsync();
             

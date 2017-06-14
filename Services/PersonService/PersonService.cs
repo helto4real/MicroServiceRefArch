@@ -20,7 +20,7 @@ namespace JoySoftware.PersonService
 
         public async Task< IEnumerable<Person>> GetAll()
         {
-            return await personRepository.GetAllAsync();
+            return await personRepository.AllAsync();
 
         }
 
