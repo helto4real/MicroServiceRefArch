@@ -5,25 +5,37 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using JoySoftware.PersonService.Model;
+using JoySoftware.PersonService.Contract;
 
 namespace PersonServiceAPI.Controllers
 {
     [Produces("application/json")]
-    [Route("api/Person")]
+    [Route("api/[controller]")]
     public class PersonController : Controller
     {
+        //public PersonController()
+
+        //{
+
+
+        //}
+        IPersonService personService = null;
+        public PersonController(IPersonService personService)
+        {
+            this.personService = personService ?? throw new NullReferenceException("personService is null");
+        }
         [HttpGet]
-        public IEnumerable<Person> Get()
+        public async Task<IActionResult> Get()
         {
             //ToDo: fix
-            return new List<Person>();
+            return Ok (await personService.GetAll());
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return "value";
+            return Ok("value");
         }
     }
 }

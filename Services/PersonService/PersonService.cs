@@ -4,26 +4,37 @@ using System.Collections.Generic;
 using System.Text;
 using JoySoftware.PersonService.Model;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace JoySoftware.PersonService
 {
     //ToDo: Add validation etc later...
-    class PersonService : IPersonService
+    public class PersonService : IPersonService
     {
         IPersonRepository personRepository = null;
 
-        private PersonService(IPersonRepository repository)
+        public PersonService(IPersonRepository repository)
         {
             personRepository = repository;
         }
-        public Person GetPerson(Guid personId)
+
+        public async Task< IEnumerable<Person>> GetAll()
         {
-            return personRepository.FindBy(s => s.Id == personId).FirstOrDefault();
+            return await personRepository.GetAllAsync();
+
         }
 
-        public void RegisterNewPerson(Person p)
+        public async Task<Person> GetPerson(Guid personId)
         {
-            personRepository.Add(p);
+            var personList = await personRepository.FindByAsync(s => s.Id == personId);
+
+            return personList.FirstOrDefault();
+        }
+
+        public async Task RegisterNewPerson(Person p)
+        {
+            await personRepository.AddAsync(p);
+
         }
     }
 }
