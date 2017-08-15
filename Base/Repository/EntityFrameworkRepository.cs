@@ -5,9 +5,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Collections;
+using System.Threading.Tasks;
 
 namespace JoySoftware.Intrastructure.Base.Repository.Database.EF
 {
+    
     public abstract class EntityFrameworkRepository<TContext, TEntity> : 
         IRepository<TEntity> where TEntity : class where TContext : DbContext, new()
 
@@ -35,17 +37,26 @@ namespace JoySoftware.Intrastructure.Base.Repository.Database.EF
         {
             context.Set<TEntity>().Add(entity);
         }
+        public virtual async Task AddAsync(TEntity entity)
+        {
+            var x =  await context.Set<TEntity>().AddAsync(entity);
 
+        }
         public virtual void Delete(TEntity entity)
         {
             context.Set<TEntity>().Remove(entity);
         }
 
-        public virtual IQueryable<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
+        public virtual IList<TEntity> FindBy(Expression<Func<TEntity, bool>> predicate)
         {
 
             IQueryable<TEntity> query = context.Set<TEntity>().Where(predicate);
-            return query;
+            return query.ToList();
+        }
+
+        public async Task<IList<TEntity>> FindByAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await context.Set<TEntity>().Where(predicate).ToListAsync();
         }
 
         public virtual void Save()
@@ -63,15 +74,23 @@ namespace JoySoftware.Intrastructure.Base.Repository.Database.EF
             throw new NotImplementedException();
         }
 
-        public virtual IQueryable<TEntity> GetAll()
+        public virtual IQueryable<TEntity> All()
         {
             IQueryable<TEntity> query = context.Set<TEntity>();
             return query;
+        }
+
+        public virtual async Task<List<TEntity>> AllAsync()
+        {
+            return await context.Set<TEntity>().ToListAsync();
+            
         }
 
         public TEntity GetById(params object[] keyValues )
         {
             return context.Set<TEntity>().Find(keyValues);
         }
+
+
     }
 }

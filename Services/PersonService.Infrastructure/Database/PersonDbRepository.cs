@@ -9,7 +9,7 @@ using JoySoftware.Intrastructure.Base.Repository.Database.EF;
 
 namespace JoySoftware.PersonService.Infrastructure.Database
 {
-    public class PersonDbRepository : EntityFrameworkRepository<PersonDbContext, Person>
+    public class PersonDbRepository : EntityFrameworkRepository<PersonDbContext, Person>, IPersonRepository
     {
         public PersonDbRepository() : base() { }
         public PersonDbRepository(PersonDbContext personContext) : base(personContext) { }

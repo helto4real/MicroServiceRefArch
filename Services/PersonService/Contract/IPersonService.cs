@@ -2,14 +2,17 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JoySoftware.PersonService.Contract
 {
     public interface IPersonService
     {
-        Person GetPerson(Guid personId);
+        Task <Person> GetPerson(Guid personId);
 
-        void RegisterNewPerson(Person p);
+        Task <IEnumerable<Person>> GetAll();
+
+        Task RegisterNewPerson(Person p);
 
     }
 }
