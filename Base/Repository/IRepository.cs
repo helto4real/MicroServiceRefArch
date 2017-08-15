@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace JoySoftware.Intrastructure.Base.Repository
 {
@@ -12,11 +13,15 @@ namespace JoySoftware.Intrastructure.Base.Repository
     /// </summary>
     public interface IRepository<TEnity> where TEnity : class 
     {
-        IQueryable<TEnity> GetAll();
-        IQueryable<TEnity> FindBy(Expression<Func<TEnity, bool>> predicate);
+        IQueryable<TEnity> All();
+        Task<List<TEnity>> AllAsync();
+        IList<TEnity> FindBy(Expression<Func<TEnity, bool>> predicate);
+        Task <IList<TEnity>> FindByAsync(Expression<Func<TEnity, bool>> predicate);
 
         TEnity GetById(params object[] keyValues);
         void Add(TEnity entity);
+        Task AddAsync(TEnity entity);
+
         void Delete(TEnity entity);
         void Update(TEnity entity);
         void UpdateOrAdd(TEnity entity);

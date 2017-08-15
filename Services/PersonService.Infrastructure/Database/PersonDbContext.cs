@@ -29,7 +29,7 @@ namespace JoySoftware.PersonService.Infrastructure.Database
             if (connectionString != null)
                 optionsBuilder.UseSqlServer(connectionString);
             else
-                optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=PersonServiceDb;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=Person;Integrated Security=True;");
         }
     }
 }
