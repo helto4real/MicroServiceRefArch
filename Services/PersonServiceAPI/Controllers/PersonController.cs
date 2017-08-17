@@ -35,7 +35,12 @@ namespace PersonServiceAPI.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(Guid id)
         {
-            return Ok("value");
+            Person p = await personService.GetPerson(id);
+
+            if (p != null)
+                return Ok(p);
+            else
+                return NotFound();
         }
     }
 }

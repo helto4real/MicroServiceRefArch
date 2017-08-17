@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Dapper;
+using System.Linq;
 
 namespace JoySoftware.Intrastructure.Base.Repository
 {
@@ -59,6 +60,15 @@ namespace JoySoftware.Intrastructure.Base.Repository
         public virtual TEntity GetById(params object[] keyValues)
         {
             throw new NotImplementedException();
+        }
+
+        public virtual async Task<TEntity> GetByIdAsync(params object[] keyValues)
+        {
+            var Id = keyValues[0];
+            IEnumerable<TEntity> result = await connection.QueryAsync<TEntity>($"SELECT TOP 1 * FROM {entityName} WHERE Id=@Id", new { Id });
+
+            return result.FirstOrDefault();
+
         }
 
         public virtual void Update(TEntity entity)

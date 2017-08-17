@@ -32,9 +32,9 @@ namespace JoySoftware.PersonService
 
         public async Task<Person> GetPerson(Guid personId)
         {
-            var personList = await personRepository.FindByAsync(s => s.Id == personId);
+            var person = await personSimpleRepository.GetByIdAsync(personId);
 
-            return personList.FirstOrDefault();
+            return person;
         }
 
         public async Task RegisterNewPerson(Person p)

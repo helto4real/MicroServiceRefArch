@@ -5,21 +5,22 @@ using System.Threading.Tasks;
 
 namespace JoySoftware.Intrastructure.Base.Repository
 {
-    public interface ISimpleRepository<TEnity> where TEnity : class
+    public interface ISimpleRepository<TEntity> where TEntity : class
     {
 
-        List<TEnity> All();
-        Task<List<TEnity>> AllAsync();
+        List<TEntity> All();
+        Task<List<TEntity>> AllAsync();
 
-        TEnity GetById(params object[] keyValues);
+        TEntity GetById(params object[] keyValues);
+        Task<TEntity> GetByIdAsync(params object[] keyValues);
+        
+        void Add(TEntity entity);
+        Task AddAsync(TEntity entity);
 
-        void Add(TEnity entity);
-        Task AddAsync(TEnity entity);
+        void Delete(TEntity entity);
 
-        void Delete(TEnity entity);
-
-        void Update(TEnity entity);
-        void UpdateOrAdd(TEnity entity);
+        void Update(TEntity entity);
+        void UpdateOrAdd(TEntity entity);
 
     }
 }
