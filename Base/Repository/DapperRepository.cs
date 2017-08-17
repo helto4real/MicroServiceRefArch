@@ -14,7 +14,7 @@ namespace JoySoftware.Intrastructure.Base.Repository
         private string entityName;
 
         #region -- Constructors --
-        public DapperRepository ( string connectionString)
+        public DapperRepository(string connectionString)
         {
             if (String.IsNullOrEmpty(connectionString))
                 throw new NullReferenceException("Connectionstring not provided");
@@ -48,7 +48,7 @@ namespace JoySoftware.Intrastructure.Base.Repository
             var result = await connection.QueryAsync<TEntity>("SELECT * FROM " + entityName);
 
             return result.AsList();
-                
+
         }
 
         public virtual void Delete(TEntity entity)
