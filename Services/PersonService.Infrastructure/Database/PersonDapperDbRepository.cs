@@ -6,13 +6,21 @@ using System.Collections.Generic;
 using System.Text;
 using Dapper;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace JoySoftware.PersonService.Infrastructure.Database
 {
     public class PersonDapperDbRepository : DapperRepository<Person>, IPersonSimpleRepository
     {
+        #region -- Commmon SQL --
+
+        string selectAllSQL = "select Id, FirstName LastName from Person";
+
+        #endregion
+
         public PersonDapperDbRepository(string connectionString) : base(connectionString)
         {
+           
         }
 
 
@@ -31,14 +39,14 @@ namespace JoySoftware.PersonService.Infrastructure.Database
             throw new NotImplementedException();
         }
 
-        //public override async Task<List<Person>> AllAsync()
-        //{
-            
-        //    var guid = Guid.NewGuid();
-        //    var persons = connection.Query<Person>("select Age = @Age, Id = @Id", new { Age = (int?)null, Id = guid });
+        public override async Task<List<Person>> AllAsync()
+        {
 
-        //    //connection.
-        //}
+            var guid = Guid.NewGuid();
+            IEnumerable<Person> persons = await connection.QueryAsync<Person>(selectAllSQL);
+
+            return persons.ToList();
+        }
 
         public override void Delete(Person entity)
         {
